@@ -45,3 +45,22 @@ INSERT INTO Student VALUES
 SELECT * FROM Student;
 
 SELECT * FROM Student_Count;
+
+-- Create procedure
+DELIMITER //
+
+CREATE PROCEDURE GetStudentDetails(IN p_student_id INT)
+BEGIN
+
+    SELECT *
+    FROM Student
+    WHERE Student_ID = p_student_id;
+
+END //
+
+DELIMITER ;
+
+
+-- Execute procedure
+CALL GetStudentDetails(102);
+
